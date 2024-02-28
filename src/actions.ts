@@ -37,6 +37,8 @@ export enum ActionId {
 	Action_SetMixVolume = 'Action_SetMixVolume',
 	Action_SoloChannel = 'Action_SoloChannel',
 	Action_MuteChannel = 'Action_MuteChannel',
+	Action_SnapshotIdUpdate = 'Action_SnapshotIdUpdate',
+	Action_SnapshotCurrentUpdate = 'Action_SnapshotCurrentUpdate',
 	Action_SnapshotIdGo = 'Action_SnapshotIdGo',
 	Action_SnapshotIndexGo = 'Action_SnapshotIndexGo',
 	Action_SnapshotNext = 'Action_SnapshotNext',
@@ -224,6 +226,30 @@ export function GetActions(instance: InstanceBaseExt<KlangConfig>): CompanionAct
 				console.log('Options', action.options)
 				if (instance.OSC)
 					instance.OSC.sendCommand(`/Kf/ui/${action.options.mix}/mode`, [{ type: 'i', value: action.options.mode }])
+			},
+		},
+		[ActionId.Action_SnapshotIdUpdate]: {
+			name: 'Update snapshot by ID',
+			options: [
+				{
+					label: 'Snapshot ID',
+					type: 'number',
+					id: 'snapshot',
+					default: 1,
+					min: 1,
+					max: 100,
+				},
+			],
+			callback: (action): void => {
+				if (instance.OSC)
+					instance.OSC.sendCommand('/Kf/co/updateSnaphot', [{ type: 'i', value: action.options.snapshot }])
+			},
+		},
+		[ActionId.Action_SnapshotCurrentUpdate]: {
+			name: 'Update current snapshot',
+			options: [],
+			callback: (): void => {
+				if (instance.OSC) instance.OSC.sendCommand('/Kf/co/updateSnaphot')
 			},
 		},
 		[ActionId.Action_SnapshotIdGo]: {
