@@ -31,7 +31,7 @@
 		"osc": "^2.4.4"
     },
     "devDependencies": {
-        "@companion-module/tools": "^1.2.0",
+        "@companion-module/tools": "^1.5.2",
         "@tsconfig/node18": "^1.0.1",
         "@types/ejson": "^2.2.0",
         "@types/jest": "^29.5.1",
