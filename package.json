@@ -11,9 +11,9 @@
         "lint": "yarn lint:raw .",
         "unit": "jest",
         "dev": "yarn build:watch",
-		"build": "rimraf dist && yarn build:main",
-		"build:main": "tsc -p tsconfig.build.json",
-		"build:watch": "tsc -p tsconfig.build.json --watch"
+        "build": "rimraf dist && yarn build:main",
+        "build:main": "tsc -p tsconfig.build.json",
+        "build:watch": "tsc -p tsconfig.build.json --watch"
     },
     "engines": {
         "node": "^18.12"
@@ -28,10 +28,10 @@
     "dependencies": {
         "@companion-module/base": "~1.4.1",
         "companion-module-utils": "^0.2.0",
-		"osc": "^2.4.4"
+        "osc": "^2.4.4"
     },
     "devDependencies": {
-        "@companion-module/tools": "^1.5.2",
+        "@companion-module/tools": "^2.8.0",
         "@tsconfig/node18": "^1.0.1",
         "@types/ejson": "^2.2.0",
         "@types/jest": "^29.5.1",
@@ -43,6 +43,6 @@
         "typedoc": "^0.24.6",
         "typescript": "~4.8.4",
         "webpack": "^5.104.1",
-		"webpack-cli": "^5.0.1"
+        "webpack-cli": "^5.0.1"
     }
 }
